@@ -1,3 +1,70 @@
+*{
+    text-decoration: none;
+}
 body {
-    background-color: aqua;
+    background-color: #0FA4AF;
+}
+.main-header {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
+form, h2, p {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
+button {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    padding: 1px 5px 1px 5px;
+    background-color: #fbe9d0;
+}
+button:hover {
+    background-color: #024950;
+    cursor: pointer;
+}
+input, textarea {
+    background-color: #AFDDE5;
+    border-style: double;
+    border-radius: 5px;
+}
+textarea {
+    height: 150px;
+    width: 450px;
+    max-width: 600px;
+    max-height: 300px;
+}
+.navbar{
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: #003135;
+}
+.navdiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Protest Guerrilla", sans-serif;
+    font-style: normal;
+}
+.logo a{
+    font-size: 35px;
+    font-weight: 400;
+    color: #ffffff;
+}
+li{
+    list-style: none;
+    display: inline-block;
+}
+li a{
+    color: white;
+    font-size: 18px;
+    margin-right: 25px;
 }

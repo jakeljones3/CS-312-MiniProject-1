@@ -42,6 +42,7 @@ app.get('/delete-post/:index', (req, res) => {
     const postIndex = parseInt(req.params.index, 10); 
     posts.splice(postIndex, 1);
     res.redirect('/');
+    console.log(req.body);
 });
 app.post("/update-post/:index", (req, res) => {
     const postIndex = parseInt(req.params.index, 10); 
@@ -54,6 +55,7 @@ app.post("/update-post/:index", (req, res) => {
             content: content,
             time: new Date().toLocaleString() 
         };
+        console.log(req.body)
     }
     res.redirect('/');
 });
