@@ -33,41 +33,27 @@ app.post("/create-post", (req, res) => {
     posts.push(post);
     res.redirect('/')
 });
-app.get('/edit-post', (req, res) => {
-    const postIndex = req.params.index;
+app.get('/edit-post/:index', (req, res) => {
+    const postIndex = parseInt(req.params.index, 10); 
     const post = posts[postIndex];
     res.render('edit-post', { post: post, index: postIndex });
 });
-app.get('/delete-post', (req, res) => {
-    const postIndex = req.params.index;
+app.get('/delete-post/:index', (req, res) => {
+    const postIndex = parseInt(req.params.index, 10); 
     posts.splice(postIndex, 1);
     res.redirect('/');
 });
-app.post('/edit-post/', (req, res) => {
-    const postIndex = parseInt(req.params.index, 10);
-    const updatedTitle = req.body.title;
-    const updatedContent = req.body.content;
-    if (isNaN(postIndex) || postIndex < 0 || postIndex >= posts.length) {
-        return res.status(404).send('Post not found');
-    }
-    posts[postIndex].title = updatedTitle;
-    posts[postIndex].content = updatedContent;
-    res.redirect('/');
-});
-app.post('/update-post', (req, res) => {
-    const postIndex = parseInt(req.params.index, 10);
-    posts[postIndex].name = req.body.name;
-    posts[postIndex].title = req.body.title;
-    posts[postIndex].content = req.body.content;
-    posts[postIndex].title = updatedTitle;
-    posts[postIndex].content = updatedContent;
-    res.redirect('/');
-});
-app.get ('/', (req, res) => {
-    res.render('index')
-});
+app.post("/update-post/:index", (req, res) => {
+    const postIndex = parseInt(req.params.index, 10); 
+    const { name, title, content } = req.body;
 
-app.get ('/about', (req, res) => {
-    res.render('about')
+    if (postIndex >= 0 && postIndex < posts.length) {
+        posts[postIndex] = {
+            name: name,
+            title: title,
+            content: content,
+            time: new Date().toLocaleString() 
+        };
+    }
+    res.redirect('/');
 });
-//comment

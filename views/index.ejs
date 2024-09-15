@@ -20,18 +20,18 @@
     <h2>Recent Posts</h2>
     <div id="posts">
         <% if (posts.length > 0) { %>
-            <% posts.forEach(function(post) { %>
-                <div class="post">
-                    <h3><%= post.title %></h3>
-                    <p>By: <%= post.name %> | Created on: <%= post.time %></p>
-                    <p><%= post.content %></p>
-                    <a href="/edit-post">Edit</a> | 
-                    <a href="/delete-post">Delete</a>
-                    </div>
-            <% }); %>
+          <% posts.forEach(function(post, index) { %>
+            <div class="post">
+              <h3><%= post.title %></h3>
+              <p><%= post.content %></p>
+              <p>By: <%= post.name %> | Created on: <%= post.time %></p>
+              <a href="/edit-post/<%= index %>">Edit</a> | 
+              <a href="/delete-post/<%= index %>">Delete</a>
+            </div>
+          <% }); %>
         <% } else { %>
-            <p>No posts yet. Be the first to create a post!</p>
+          <p>No posts yet. Be the first to create a post!</p>
         <% } %>
-    </div>
+      </div>
 </body>
 </html>
