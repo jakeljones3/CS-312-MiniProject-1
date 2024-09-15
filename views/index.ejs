@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>Create a New Blog Post</h1>
+    <form action="/create-post" method="post">
+        <label for="name">Your name: </label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="title">Title your post: </label><br>
+        <input type="text" id="title" name="title" required><br>
+        <label for="content">Write about it: </label><br>
+        <textarea type="text" id="content" name="content" rows="5" required></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+    <h2>Recent Posts</h2>
+    <div id="posts">
+        <% if (posts.length > 0) { %>
+            <% posts.forEach(function(post) { %>
+                <div class="post">
+                    <h3><%= post.title %></h3>
+                    <p>By: <%= post.name %> | Created on: <%= post.time %></p>
+                    <p><%= post.content %></p>
+                    <a href="/edit-post">Edit</a> | 
+                    <a href="/delete-post">Delete</a>
+                    </div>
+            <% }); %>
+        <% } else { %>
+            <p>No posts yet. Be the first to create a post!</p>
+        <% } %>
+    </div>
+</body>
+</html>
