@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css" media="(min-width:901px)">
+    <link rel="stylesheet" href="css/mobile_styles.css" media="(max-width:901px)"
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
@@ -31,16 +32,16 @@
         <textarea type="text" id="content" name="content" rows="5" required></textarea><br>
         <button type="submit">Submit</button>
     </form>
-    <h2>Recent Posts</h2>
+    <h2 class="recent">Recent Posts</h2>
     <div id="posts">
         <% if (posts.length > 0) { %>
           <% posts.forEach(function(post, index) { %>
             <div class="post">
               <h3><%= post.title %></h3>
-              <p><%= post.content %></p>
+              <p class="post-content"><%= post.content %></p>
               <p>By: <%= post.name %> | Created on: <%= post.time %></p>
-              <a href="/edit-post/<%= index %>">Edit</a> | 
-              <a href="/delete-post/<%= index %>">Delete</a>
+              <a class="edit-btn" href="/edit-post/<%= index %>">Edit</a> | 
+              <a class="delete-btn" href="/delete-post/<%= index %>">Delete</a>
             </div>
           <% }); %>
         <% } else { %>

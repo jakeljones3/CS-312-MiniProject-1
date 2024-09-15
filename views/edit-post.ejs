@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Post</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css" media="(min-width:901px)">
+    <link rel="stylesheet" href="../css/mobile_styles.css" media="(max-width:901px)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Protest+Guerrilla&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Edit Post</h1>
+    <nav class="navbar">
+		<div class="navdiv">
+			<div class="logo"><a href="#">Jakel's Blog Website</a> </div>
+			<ul>
+				<li><a href="../">Home</a></li>
+			</ul>
+		</div>
+	</nav>
+    <h1 class="main-header">Edit Your Post</h1>
     <form action="/update-post/<%= index %>" method="POST">
         <label for="name">Your name: </label><br>
         <input type="text" id="name" name="name" required><br>
